@@ -1,0 +1,17 @@
+version: '3.7'
+services:
+  client:
+    build:
+      context: ./client
+    container_name: appv84
+    volumes:
+      - .client/src:/usr/app/src
+      - usr/app/node_modules
+    ports:
+      - 4000:3000
+    networks:
+      - frontend_network
+    environment:
+      - CHOKIDAR_USEPOLLING=true
+networks:
+  frontend_network:
